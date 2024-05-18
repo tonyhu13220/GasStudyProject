@@ -8,6 +8,12 @@ AAuruCharacterBase::AAuruCharacterBase()
 
 	PrimaryActorTick.bCanEverTick = false;
 
+
+	//创建玩家武器组件
+	Weapon=CreateDefaultSubobject<USkeletalMeshComponent>("WeaponComp");
+	Weapon->SetupAttachment(GetMesh(),FName("WeaponHandSocket"));
+	Weapon->SetCollisionEnabled(ECollisionEnabled::Type::NoCollision);
+
 }
 
 void AAuruCharacterBase::BeginPlay()
